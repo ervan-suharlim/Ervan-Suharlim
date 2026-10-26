@@ -79,7 +79,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(251,253,248,.88);backdro
 .contact{background:var(--d);color:#fff;border-radius:32px;padding:clamp(28px,6vw,72px)}
 .contact h2{max-width:14em}
 .contact>p{color:#cfe2d4;margin:1rem 0 2.4rem;max-width:30rem}
-.links{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+.links{display:grid;grid-template-columns:1fr;gap:0}
 .links a{display:flex;justify-content:space-between;gap:1rem;padding:1.2rem 0;border-top:1px solid rgba(255,255,255,.2);transition:color .2s,padding .2s}
 .links a:hover{color:var(--g);padding-left:.6rem}
 .links span{color:#a9c4b0}
@@ -102,21 +102,13 @@ header{position:sticky;top:0;z-index:20;background:rgba(251,253,248,.88);backdro
 .ni .lk{display:inline-block;margin-top:.5rem;color:var(--d);text-decoration:underline;text-underline-offset:3px}
 .ni img{display:block;width:100%;max-width:520px;border-radius:14px;margin-top:1rem}
 .ni iframe{display:block;width:100%;max-width:504px;height:480px;border:0;border-radius:12px;margin-top:1rem}
-.form .lb{display:block;font-size:.9rem;color:var(--mut)}
-.drop{position:relative;display:flex;flex-direction:column;align-items:center;gap:.3rem;margin-top:.35rem;padding:1.5rem 1rem;text-align:center;border:2px dashed #b7d49a;border-radius:16px;background:var(--bg);cursor:pointer;transition:background .2s,border-color .2s}
-.drop:hover,.drop.on{background:var(--g2);border-color:var(--d)}
-.drop:focus-within{outline:3px solid var(--d);outline-offset:3px}
-.drop b{font-weight:500;color:var(--ink);background:var(--g);padding:.45rem 1.3rem;border-radius:99px;margin:.25rem 0}
-.drop span{font-size:.88rem}
-.drop input{position:absolute;opacity:0;width:1px;height:1px;margin:0;padding:0}
-.fl{list-style:none;padding:0;margin-top:.6rem;display:grid;gap:.4rem}
-.fl li{display:flex;align-items:center;gap:.8rem;padding:.5rem .7rem;border:1px solid var(--line);border-radius:10px;font-size:.92rem;overflow-wrap:anywhere}
-.fl img{width:46px;height:46px;object-fit:cover;border-radius:8px;flex:none;background:var(--g2)}
-.fl li span{flex:1;min-width:0}
-.form .fl button{all:unset;cursor:pointer;color:var(--d);text-decoration:underline;font-size:.88rem;flex:none}
-.form .fl button:focus-visible{outline:3px solid var(--d);outline-offset:2px}
 .form .send{display:inline-flex;align-items:center;gap:.7rem;padding:1rem 2rem;border-radius:99px;background:var(--g);color:var(--ink);font:500 1.05rem var(--sans);box-shadow:0 10px 22px -12px rgba(15,61,34,.7);transition:transform .2s,background .2s}
 .form .send:hover{background:#b3f055;transform:translateY(-2px)}
+.form .act{grid-column:1/-1;display:flex;gap:.8rem;flex-wrap:wrap}
+.form .alt{display:inline-flex;align-items:center;gap:.7rem;padding:1rem 1.8rem;border:0;border-radius:99px;background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--d);font:500 1.05rem var(--sans);cursor:pointer;transition:background .2s,transform .2s}
+.form .alt:hover{background:var(--g2);transform:translateY(-2px)}
+.form .hint{grid-column:1/-1;font-size:.88rem;color:var(--mut)}
+.form textarea{resize:vertical;min-height:7rem;max-width:100%}
 footer{padding:28px 0 40px;text-align:center;color:var(--mut);font-size:.9rem}
 @media(max-width:820px){
 .menu{display:grid}
@@ -194,26 +186,18 @@ footer{padding:28px 0 40px;text-align:center;color:var(--mut);font-size:.9rem}
 <h2>Punya kebutuhan cetak? Ayo ngobrol.</h2>
 <p>Kirim ukuran, jumlah, dan contoh yang Anda suka. Saya balas secepatnya.</p>
 <div class="links">
-<a href="https://wa.me/6285882699718" target="_blank" rel="noopener"><span>WhatsApp</span><b>0858-8269-9718</b></a>
+<a href="https://wa.me/6285882699718?text=Halo%20Ervan%2C%20saya%20ingin%20bertanya%20soal%20jasa%20desain%20dan%20cetak." target="_blank" rel="noopener"><span>WhatsApp</span><b>0858-8269-9718</b></a>
 <a href="mailto:ervansuharlim92@gmail.com" target="_blank" rel="noopener"><span>Email</span><b>ervansuharlim92@gmail.com</b></a>
-<a href="https://instagram.com/ervansuharlim" target="_blank" rel="noopener"><span>Instagram</span><b>@ervansuharlim</b></a>
-<a href="https://www.linkedin.com/in/ervan-suharlim" target="_blank" rel="noopener"><span>LinkedIn</span><b>linkedin.com/in/ervan-suharlim</b></a>
 </div>
-<form class="form" id="f" action="https://formsubmit.co/4a077bae4e4ca70df0dfe36553abc1fa" method="POST" enctype="multipart/form-data" target="_blank">
-<h3>Kirim pesan langsung</h3>
-<input type="hidden" name="_subject" value="Pesan baru dari website portfolio"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+<form class="form" id="f">
+<h3>Kirim pesan</h3>
 <label>Nama<input name="Nama" required autocomplete="name"></label>
-<label>Email untuk balasan<input type="email" name="email" required autocomplete="email"></label>
 <label>Jasa yang dibutuhkan<select name="Jasa" required><option value="">Pilih jasa</option><option>Cetak ID card</option><option>Cetak kalender</option><option>Cetak nota atau faktur</option><option>Cetak surat jalan</option><option>Cetak lainnya</option><option>Desain atau setting file</option><option>Desain dan cetak</option><option>Lainnya</option></select></label>
 <label>Subjek<input name="Subjek" required placeholder="Contoh: pesan 200 ID card"></label>
-<label>Nomor telepon (opsional)<input type="tel" name="Telepon" autocomplete="tel"></label>
 <label>Nama perusahaan (opsional)<input name="Perusahaan" autocomplete="organization"></label>
 <label class="w">Pesan<textarea name="Pesan" rows="5" required placeholder="Tulis ukuran, jumlah, dan kebutuhan Anda"></textarea></label>
-<div class="w"><span class="lb">Lampirkan gambar (opsional)</span>
-<label class="drop" id="dz" for="fi"><b>Pilih gambar</b><span>Atau seret ke sini. Boleh lebih dari satu, total maksimal 10 MB.</span><input type="file" accept="image/*" id="fi" multiple></label>
-<ul class="fl" id="fl"></ul><div id="hx" hidden></div></div>
-<button class="send" type="submit"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z"/></svg>Kirim pesan</button>
-<p class="note" id="fn" role="status"></p>
+<div class="act"><button class="send" type="submit"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.3 7.6L3 21l1.5-5.5A8.5 8.5 0 1 1 21 12z"/></svg>Kirim lewat WhatsApp</button><button class="alt" type="button" id="em"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Atau kirim lewat email</button></div>
+<p class="hint">Isi form ini jadi pesan siap kirim di WhatsApp atau email Anda. Ada gambar atau file (CDR, PSD, PDF)? Lampirkan langsung di chat atau email setelah terbuka. File besar bisa lewat link Google Drive atau WeTransfer.</p>
 </form>
 </div></div></section>
 </main>
@@ -224,23 +208,10 @@ renderBerita(document.getElementById('nl'),3);
 var n=document.getElementById('nav'),b=document.getElementById('mb');
 b.onclick=function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)};
 n.querySelectorAll('ul a').forEach(function(a){a.onclick=function(){n.classList.remove('open');b.setAttribute('aria-expanded',false)}});
-var fi=document.getElementById('fi'),fn=document.getElementById('fn'),fl=document.getElementById('fl'),dz=document.getElementById('dz'),hx=document.getElementById('hx'),S=[],U=[],MAX=10485760,N=10;
-function sz(b){return b>1048576?(b/1048576).toFixed(1)+' MB':Math.ceil(b/1024)+' KB'}
-function sync(){U.forEach(function(u){URL.revokeObjectURL(u)});U=[];hx.innerHTML='';fl.innerHTML='';
-S.forEach(function(f,k){
-try{var h=document.createElement('input'),d=new DataTransfer();h.type='file';h.name=k?'attachment'+(k+1):'attachment';d.items.add(f);h.files=d.files;hx.appendChild(h)}catch(e){}
-var li=document.createElement('li'),im=document.createElement('img'),s=document.createElement('span'),b=document.createElement('button'),u=URL.createObjectURL(f);
-U.push(u);im.src=u;im.alt='';s.textContent=f.name+' ('+sz(f.size)+')';b.type='button';b.textContent='Hapus';
-b.onclick=function(){S.splice(k,1);sync();fn.textContent=''};li.appendChild(im);li.appendChild(s);li.appendChild(b);fl.appendChild(li)})}
-function add(L){var n=[];Array.prototype.forEach.call(L,function(f){if(/^image\//.test(f.type)&&!S.some(function(x){return x.name==f.name&&x.size==f.size}))n.push(f)});
-var t=S.concat(n).reduce(function(a,f){return a+f.size},0);
-if(S.length+n.length>N){fn.textContent='Maksimal '+N+' gambar.';return}
-if(t>MAX){fn.textContent='Total gambar lebih dari 10 MB. Kurangi atau kecilkan gambarnya.';return}
-S=S.concat(n);sync();fn.textContent=n.length<L.length?'Hanya file gambar yang bisa dilampirkan.':''}
-fi.onchange=function(){add(fi.files);fi.value=''};
-dz.ondragover=function(e){e.preventDefault();dz.classList.add('on')};dz.ondragleave=function(){dz.classList.remove('on')};
-dz.ondrop=function(e){e.preventDefault();dz.classList.remove('on');add(e.dataTransfer.files)};
-document.getElementById('f').onsubmit=function(){fn.textContent='Pesan dikirim di tab baru. Terima kasih, saya balas lewat email Anda.'};
+var F=document.getElementById('f');
+function msg(){var g=function(k){return F.elements[k].value.trim()},t='Halo Ervan, saya '+g('Nama')+'.\nJasa: '+g('Jasa')+'\nSubjek: '+g('Subjek'),c=g('Perusahaan');if(c)t+='\nPerusahaan: '+c;return t+'\nPesan: '+g('Pesan')}
+F.onsubmit=function(e){e.preventDefault();window.open('https://wa.me/6285882699718?text='+encodeURIComponent(msg()),'_blank','noopener')};
+document.getElementById('em').onclick=function(){if(!F.reportValidity())return;location.href='mailto:ervansuharlim92@gmail.com?subject='+encodeURIComponent(F.elements.Subjek.value.trim()+' ('+F.elements.Jasa.value+')')+'&body='+encodeURIComponent(msg())};
 </script>
 </body>
 </html>
