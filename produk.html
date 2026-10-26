@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Produk | Ervan Suharlim</title>
+<meta name="description" content="Katalog produk cetak dan desain: ID card, brosur, spanduk, nota, kalender, dan lainnya.">
+<meta name="theme-color" content="#0f3d22">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230f3d22'/%3E%3Ctext x='16' y='24' font-size='22' text-anchor='middle' fill='%239be32d' font-family='serif' font-style='italic'%3EE%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap nav" id="nav">
+<a class="logo" href="index.html">Ervan Suharlim</a>
+<button class="menu" aria-label="Buka menu" aria-expanded="false" id="mb"><i></i></button>
+<ul><li><a href="index.html#tentang">Tentang</a></li><li><a href="profil.html">Profil</a></li><li><a href="produk.html" aria-current="page">Produk</a></li><li><a href="berita.html">Berita</a></li></ul>
+</div></header>
+<main><div class="wrap pg">
+<h1>Produk</h1>
+<p class="lead">Pilih produknya, lalu isi form pemesanan. Pesanan dikirim lewat WhatsApp atau email.</p>
+<div class="sb"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="q" type="search" placeholder="Cari produk, misalnya spanduk atau ID card" autocomplete="off" aria-label="Cari produk"><button id="qc" type="button" aria-label="Hapus pencarian" hidden>&times;</button></div>
+<div class="chips" id="ch"></div>
+<p class="cnt" id="cn" role="status" aria-live="polite"></p>
+<div class="grid" id="gr"></div>
+<div class="emp" id="em" hidden><p>Belum ada produk yang cocok dengan &ldquo;<b id="eq"></b>&rdquo;.</p><p>Coba kata lain atau pilih kategori Semua. Atau tanyakan langsung, siapa tahu bisa kami kerjakan.</p><a class="btn" id="ew" href="#" target="_blank" rel="noopener">Tanya lewat WhatsApp</a></div>
+</div></main>
+<footer><div class="wrap fo"><span>&copy; 2026 Ervan Suharlim</span><span><a href="https://wa.me/6285882699718" target="_blank" rel="noopener">WhatsApp 0858-8269-9718</a><a href="mailto:ervansuharlim92@gmail.com">ervansuharlim92@gmail.com</a></span></div></footer>
+<script src="produk.js"></script>
+<script>
+var Q=document.getElementById('q'),QC=document.getElementById('qc'),GR=document.getElementById('gr'),CN=document.getElementById('cn'),EM=document.getElementById('em'),CH=document.getElementById('ch'),cat='semua';
+var C=[['semua','Semua']].concat(Object.keys(KAT).map(function(k){return[k,KAT[k]]}));
+C.forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent=c[1];b.setAttribute('aria-pressed',c[0]==cat);
+b.onclick=function(){cat=c[0];[].forEach.call(CH.children,function(x,i){x.setAttribute('aria-pressed',C[i][0]==cat)});draw()};CH.appendChild(b)});
+function draw(){var q=Q.value.trim(),r=cari(q),L=r.list.filter(function(p){return cat=='semua'||p.kat==cat});QC.hidden=!q;GR.textContent='';
+L.forEach(function(p){GR.appendChild(kartu(p))});EM.hidden=!!L.length;
+CN.textContent=L.length?L.length+' produk'+(q&&!r.exact?'. Menampilkan yang paling mirip dengan \u201c'+q+'\u201d.':''):'';
+if(!L.length){document.getElementById('eq').textContent=q;document.getElementById('ew').href='https://wa.me/6285882699718?text='+encodeURIComponent('Halo Ervan, saya mencari produk: '+q)}}
+Q.oninput=draw;QC.onclick=function(){Q.value='';draw();Q.focus()};
+Q.value=new URLSearchParams(location.search).get('q')||'';draw();
+</script>
+</body>
+</html>
